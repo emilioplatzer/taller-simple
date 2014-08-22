@@ -19,3 +19,5 @@ Resolvimos:
 == ¿Cómo seguimos? ==
 
 Quedamos en pensar para resolver la próxima cuál será el proyecto. Podría ser un sistema d requerimientos o de control de personal eventual. 
+
+*Próxima reunión*: 26/8 11hs
