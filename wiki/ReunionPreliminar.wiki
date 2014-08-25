@@ -7,7 +7,7 @@
 Nos reunimos para darle forma a esta idea. 
 
 Hablamos de:
- * Programar claro, elegante sin copiar y pegar
+ * Programar claro, elegante sin copiar y pegar, por ejemplo sacando factor común cuando sea posible
  * Clases y/o módulos pequeños con una sola responsabilidad
  * Minimizar la interdependencia entre módulos
  * Manejar el problema de la inyección de código desde el momento 0
