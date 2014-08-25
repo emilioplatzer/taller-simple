@@ -11,6 +11,8 @@ Hablamos de:
  * Clases y/o módulos pequeños con una sola responsabilidad
  * Minimizar la interdependencia entre módulos
  * Manejar el problema de la inyección de código desde el momento 0
+ * Separar el conocimiento de negocio del motor de negocio
+ * Mantener las normas de desarrollo presentes hasta el momento 
 
 Resolvimos:
  * Usar lenguajes de programación que dominamos (porque el objetivo es aprender metodología, no herramientas ni lenguajes): php, Javascript y  postgresql
