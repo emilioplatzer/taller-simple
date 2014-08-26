@@ -1,0 +1,16 @@
+= Primera Reunión =
+
+|| Fecha || Presentes ||
+|| 26/8 || Elba, Graciela, Raquel, Mauro, Emilio ||
+
+== Eligiendo la aplicación ==
+
+Habíamos quedado en la reunión de preparación que hoy íbamos a elegir cuál sería la aplicación que vamos a desarrollar. Hablamos de la posibilidad de hacer 2 a la vez en paralelo (lo descartamos por ahora). Las alternativas entre las que elegimos son:
+ # Sistema de Selección de personal (reclutamiento) y de registro de participación en proyectos
+ # Manejo de Capacitaciones
+ # Sistema de Requerimientos
+ # Sistema online de seguimiento de producción de encuestas y backup. 
+
+== Sistema elegido: RRPP ==
+
+Elegimos el sistema de Reclutamiento y Registro de Participación en Proyectos
