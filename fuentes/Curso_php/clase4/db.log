@@ -1,0 +1,8 @@
+2014/07/31 04:38:41 | SQLSTATE[HY000]: General error: mode must be an integer
+2014/07/31 04:38:41 | SQLSTATE[42S02]: Base table or view not found: 1146 Table 'pregunta2.opciones' doesn't exist
+2014/07/31 04:39:37 | SQLSTATE[HY000]: General error: mode must be an integer
+2014/07/31 04:39:37 | SQLSTATE[HY000]: General error: mode must be an integer
+2014/07/31 04:40:12 | SQLSTATE[HY000]: General error: mode must be an integer
+2014/07/31 04:40:12 | SQLSTATE[42S02]: Base table or view not found: 1146 Table 'pregunta2.opciones' doesn't exist
+2014/07/31 04:43:44 | SQLSTATE[HY000]: General error: mode must be an integer
+2014/07/31 04:44:59 | SQLSTATE[HY000]: General error: fetch mode doesn't allow any extra arguments
