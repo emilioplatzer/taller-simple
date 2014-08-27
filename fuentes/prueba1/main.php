@@ -1,37 +1,36 @@
 <?php
 // DB.class.php
 //require_once("db.class.php");
+    require_once("personal.html");
     $dsn = 'pgsql:dbname=rrpp_db;host=localhost';
     $usuario = 'tedede_php';
     $pass = '44php55';
     $host='localhost';
     $bd='rrpp_db';
-//new PDO('pgsql:user=exampleuser dbname=exampledb password=examplepass');
     $conn = conectarPostgreSQL( $usuario, $pass, $host, $bd );     
     $sql = "SELECT * FROM prin.personal;"; 
-    $resultado=pg_fetch_array(pg_query($conn,$sql), NULL, PGSQL_ASSOC);
- //pg_query($conn, "SELECT author, email FROM authors");  
-    $datos_a_insertar=array('per_documento'=>'22723555',
+    //$resultado=pg_fetch_array(pg_query($conn,$sql), NULL, PGSQL_ASSOC);
+    $datos_a_insertar=array('per_documento'=>$_POST["documento"],
                             'per_cuil'=>'20227235555',
-                            'per_nombre'=>'Juan',
-                            'per_apellido'=>'Perez',
+                            'per_nombre'=>$_POST["nombre"],
+                            'per_apellido'=>$_POST["apellido"],
                             'per_telefono'=>'151515151',
                             'per_mail'=>'juanperez@gmail.com',
                             'per_direccion'=>'Don Bosco 3360');
-    $sql_insertar='insert into prin.personal (';
+    
+    $sql_valores='';
+    $sql_columnas='';
     foreach ( $datos_a_insertar as $columna=>$valor) {
-        $sql_insertar=$sql_insertar.$columna.',';
+        $sql_columnas=$sql_columnas.$columna.',';
+        $sql_valores=$sql_valores."'$valor',";
     }
-    $sql_insertar=sacarComaFinal($sql_insertar);
-    $sql_insertar=$sql_insertar.') values (';
-    foreach ( $datos_a_insertar as $columna=>$valor) {
-        $sql_insertar=$sql_insertar."'$valor',";
-    }
-    $sql_insertar=sacarComaFinal($sql_insertar);
-    $sql_insertar=$sql_insertar.');';    
+    $sql_insertar='insert into prin.personal ('.sacarComaFinal($sql_columnas).') values ('.sacarComaFinal($sql_valores).');';
     
     //print 'sql_insertar: '.$sql_insertar;       
-    print insertarRegistro($conn, $sql_insertar);
+    //print 'documento_de_post:_'.$_POST["documento"].'_';
+    if ($_POST["documento"]){
+        print insertarRegistro($conn, $sql_insertar);
+    }
     
     function conectarPostgreSQL( $usuario, $pass, $host, $bd ){
         $conexion = pg_connect( "user=".$usuario." ".
