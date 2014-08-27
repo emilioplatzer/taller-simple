@@ -13,8 +13,12 @@
     $conn = conectarPostgreSQL( $usuario, $pass, $host, $bd );     
     $sql = "SELECT * FROM prin.personal;";     
     foreach ($estructura_personal as $campo=>$valor){
+        if (!empty($_POST[$campo])){ 
             $datos_a_insertar[$campo]=$_POST[$campo];            
-    }    
+        }else{
+            $datos_a_insertar[$campo]='';
+        }
+    }        
     $sql_valores='';
     $sql_columnas='';
     foreach ( $datos_a_insertar as $columna=>$valor) {
@@ -22,9 +26,10 @@
         $sql_valores=$sql_valores."'$valor',";
     }
     $sql_insertar='insert into prin.personal ('.sacarComaFinal($sql_columnas).') values ('.sacarComaFinal($sql_valores).');';
-    if ($_POST["per_documento"]){
+    //print $sql_insertar;
+    if (!empty($_POST["per_documento"])){
         print insertarRegistro($conn, $sql_insertar);
-    }    
+    }  
     function conectarPostgreSQL( $usuario, $pass, $host, $bd ){
         $conexion = pg_connect( "user=".$usuario." ".
                                  "password=".$pass." ".
