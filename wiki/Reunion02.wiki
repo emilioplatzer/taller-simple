@@ -17,6 +17,8 @@ Costó terminar la tarea. En principio costó arrancar (tomar las primeras decis
 == ¿Qué vamos a hacer hoy? ==
 
 Nos pusimos dar prolijidad a lo que habíamos hecho. Quedamos a mitad de camino, pero avanzamos en lo siguiente:
+ # En SQL en las instrucciones a la base separamos la sentencia de los datos usando _sentencias preparadas_ y _placeholders_ dentro de las sentencias. 
+ # Provisoriamente usamos un despachador que determina qué función ejecutar en base a los parámetros recibidos en la URL. Para determinar si lo que se pasa es válido o no buscando que exista la función prefijando al nombre "despachable_" o sea todas las funciones que empiezan con "despachable_" son funciones que se pueden llamar desde la URL. 
 
 == Cierre de la actividad ==
 
