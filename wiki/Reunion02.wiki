@@ -1,0 +1,27 @@
+#labels Reunion
+= Segunda Reunión =
+
+|| Fecha || Presentes ||
+|| 29/8 || Elba, Graciela, Raquel, Mauro, Emilio ||
+
+== Reflexiones sobre la tarea ==
+
+Costó terminar la tarea. En principio costó arrancar (tomar las primeras decisiones y trabajar en un grupo de 4). Pero lo que se destaca es que llevó mucho más tiempo del que cada uno suponía que esta tarea iba a tomar. 
+
+== Acuerdos ==
+
+ # Convenimos entonces en agregar como objetivo a este taller usarlo como práctica para la estimación de tiempos de las tareas. Al principio cada participante anotará en privado cuánto supone que cada tarea lleva y en breve compartiremos el ejercicio de estimar. 
+ # Reforzamos la importancia de la prolijidad (identación, espacios, márgenes, nombres de variable, etc.
+ # Respecto la instalación de la base y/o scripts y/o programas externos (ej: excel). Conviene siempre que se pueda guardar una versión en texto plano. En el caso de las bases de datos conviene el script que las genera antes que un backup (ya sea backup binario o de texto plano: es mejor el script a mano de creación antes que el "dump" de la base porque el dump se genera agregando mucha información innecesaria). 
+
+== ¿Qué vamos a hacer hoy? ==
+
+Nos pusimos dar prolijidad a lo que habíamos hecho. Quedamos a mitad de camino, pero avanzamos en lo siguiente:
+
+== Cierre de la actividad ==
+
+No hubo tarea, quedamos en que íbamos a avanzar todos juntos en la prolijidad del código. 
+
+== ¿Cómo seguimos? ==
+
+*Próxima reunión*: martes 2/9 11:00 a 13:00
