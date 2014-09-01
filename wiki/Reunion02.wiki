@@ -19,10 +19,14 @@ Costó terminar la tarea. En principio costó arrancar (tomar las primeras decis
 Nos pusimos dar prolijidad a lo que habíamos hecho. Quedamos a mitad de camino, pero avanzamos en lo siguiente:
  # En SQL en las instrucciones a la base separamos la sentencia de los datos usando _sentencias preparadas_ y _placeholders_ dentro de las sentencias. 
  # Provisoriamente usamos un despachador que determina qué función ejecutar en base a los parámetros recibidos en la URL. Para determinar si lo que se pasa es válido o no buscando que exista la función prefijando al nombre "despachable_" o sea todas las funciones que empiezan con "despachable_" son funciones que se pueden llamar desde la URL. 
+ # La creación de tablas (los scripts SQL para la base) los generamos desde el PHP (vía línea de comandos) porque tenemos la info de cuáles son los campos y sus nombres
+ # Pasamos a un .css todos los formatos. 
+ # Encapsulamos la apertura de la conexión a la base de datos. 
 
 == Cierre de la actividad ==
 
-No hubo tarea, quedamos en que íbamos a avanzar todos juntos en la prolijidad del código. 
+No hubo tarea, quedamos en que íbamos a avanzar todos juntos en la prolijidad del código. Cosas que faltan:
+ # Controlar la posible inyección en todo el programa
 
 == ¿Cómo seguimos? ==
 
