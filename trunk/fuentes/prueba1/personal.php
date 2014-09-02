@@ -1,4 +1,5 @@
 <?php
+require_once("comunes.php");
 //require_once("main.html");
 function armaFormulario($titulo, $array_campos){
     echo<<<HTML
@@ -8,6 +9,7 @@ function armaFormulario($titulo, $array_campos){
 HTML;
     $str_html='';
     foreach($array_campos as $campo=>$leyenda){
+		seguro($leyenda,'html');
         $str_html=$str_html."
             <tr><td class=etiqueta_formulario>$leyenda</td>     
             <td><input id=$campo name=$campo type='text'></td> 
