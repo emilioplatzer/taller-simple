@@ -16,7 +16,8 @@ adaptar_estructura_campos($estructura_personal);
 function adaptar_estructura_campos(&$estructura_tabla){
     foreach($estructura_tabla as $campo=>&$definicion_campo){
         $definicion_campo+=array(
-            'aclaracion'=>''
+            'aclaracion'=>'',
+            'nombre_campo'=>$campo
         );
     }
 }
