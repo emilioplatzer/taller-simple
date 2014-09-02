@@ -8,17 +8,20 @@ function armaFormulario($titulo, $array_campos){
     <table class=tabla_formulario> 
     <h1 class=titulo_formulario>$titulo</h1>
 HTML;
+    $enviar=new ArmadorHtml();  
     foreach($array_campos as $campo=>$definicion_campo){
         $leyenda=$definicion_campo['leyenda'];
         $aclaracion=$definicion_campo['aclaracion'];
-        enviar_abrir('tr');
-          enviar_abrir('td',array('class'=>'etiqueta_formulario', 'title'=>$aclaracion));
-            enviar_texto($leyenda);
-          enviar_cerrar('td');
-          enviar_abrir('td');
-            enviar_elemento('input',array('id'=>$campo, 'name'=>$campo, 'type'=>'text'));
-          enviar_cerrar('td');
-        enviar_cerrar('tr');
+        $enviar->abrir('tr');
+          $enviar->abrir('td',array('class'=>'etiqueta_formulario', 'title'=>$aclaracion));
+            $enviar->abrir('label',array('for'=>$campo));
+              $enviar->texto($leyenda);
+            $enviar->cerrar('label');
+          $enviar->cerrar('td');
+          $enviar->abrir('td');
+            $enviar->elemento('input',array('id'=>$campo, 'name'=>$campo, 'type'=>'text'));
+          $enviar->cerrar('td');
+        $enviar->cerrar('tr');
         
         /*
         seguro($leyenda,'html');
