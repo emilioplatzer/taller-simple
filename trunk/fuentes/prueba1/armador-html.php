@@ -49,6 +49,8 @@ class ArmadorHtml{
     function elemento($tag, $atributos=array()){
         return $this->tag_con_atributos($tag, $atributos, true);
     }
+    function complejo($complejo, $datos1=array(), $datos2=array(), $datos3=array()){
+    }
 }
 
 ?>

@@ -32,6 +32,14 @@ HTML;
               <td><input id=$campo name=$campo type='text'></td> 
             </tr>";
         */
+        $enviar->complejo(<<<HTML
+            <tr>
+              <td class=etiqueta_formulario title=#:aclaracion>#!leyenda</td>
+              <td><input id=#:campo name=#:campo type='text'></td> 
+            </tr>
+HTML
+            , $definicion_campo
+        );
     }
     echo <<<HTML2
     <td><div align="right"> 
