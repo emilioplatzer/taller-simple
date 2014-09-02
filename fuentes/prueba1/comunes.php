@@ -7,6 +7,7 @@ function seguro($algo, $uso='codigo'){
 	$conjuntos_seguros=array(
 		'codigo'=>'^[A-Za-z0-9_]*$',
 		'html'=>'^[^<>&]*$',
+		'attr_html'=>'^[^<>&"\']*$',
 		'mail'=>'^[A-Za-z0-9_@.]*$',
 		'dato_sql'=>"^[^']*$",
 	);

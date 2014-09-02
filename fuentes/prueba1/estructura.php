@@ -2,13 +2,13 @@
 //UTF-8:SÍ
 
 $estructura_personal=array(
-	'per_documento'=>'DNI',
-	'per_cuil'=>'CUIL',
-	'per_nombre'=>'Nombre',
-	'per_apellido'=>'Apellido',
-	'per_telefono'=>'Teléfono',
-	'per_mail'=>'Mail',
-	'per_direccion'=>'Dirección'
+	'per_documento'=>array('leyenda'=>'DNI'      , 'aclaracion'=>'sin puntitos'),
+	'per_cuil'     =>array('leyenda'=>'CUIL'     , 'aclaracion'=>'sin guiones' ),
+	'per_nombre'   =>array('leyenda'=>'Nombre'   , ),
+	'per_apellido' =>array('leyenda'=>'Apellido' , ),
+	'per_telefono' =>array('leyenda'=>'Teléfono' , ),
+	'per_mail'     =>array('leyenda'=>'Mail'     , ),
+	'per_direccion'=>array('leyenda'=>'Dirección', ),
 );
 
 ?>

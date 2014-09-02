@@ -8,10 +8,13 @@ function armaFormulario($titulo, $array_campos){
     <h1 class=titulo_formulario>$titulo</h1>
 HTML;
     $str_html='';
-    foreach($array_campos as $campo=>$leyenda){
+    foreach($array_campos as $campo=>$definicion_campo){
+		$leyenda=$definicion_campo['leyenda'];
+		$aclaracion=$definicion_campo['aclaracion'];
 		seguro($leyenda,'html');
+		seguro($aclaracion,'attr_html');
         $str_html=$str_html."
-            <tr><td class=etiqueta_formulario>$leyenda</td>     
+            <tr><td class=etiqueta_formulario title='$aclaracion'>$leyenda</td>     
             <td><input id=$campo name=$campo type='text'></td> 
             </tr><tr><tr> ";
     }
