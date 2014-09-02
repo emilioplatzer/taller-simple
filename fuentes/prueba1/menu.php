@@ -1,1 +1,1 @@
-<?phpfunction despachable_menu(){	echo "esto es el menu principal";}?>
+<?phpfunction despachable_menu(){    echo "esto es el menu principal";}?>
