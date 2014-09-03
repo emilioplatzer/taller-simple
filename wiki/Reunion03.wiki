@@ -35,6 +35,21 @@ La función htmlspecialchars transforma los signos <, >, & y " en sus respectivo
 
 La principal desventaja de esta solución es la tentación de los programadores a hacer interpolación directa y a olvidarse de las funciones de conversión. 
 
+== Solución 2: enviando los elementos de a uno ==
+
+La segunda solución consiste en usar una función para enviar cada elemento Separando el contenido de los asuntos y sus valores. Acá había dos alternativas para manejar los elementos que incluyen otros elementos:
+ # enviar el contenido como parámetro
+{{{
+enviar_elemento('div',
+  enviar_elemento('span',
+    "Este texto"
+  )
+);
+}}}
+ 
+ # enviar la apertura y cierre de los elementos en funciones separadas:
+
+
 == Acuerdos ==
 
  # Evitar la interpolación directa de variables dentro de strings, ya sea para enviar HTML o para armar sentencias SQL o lo que sea. Los puntos de interpolación (o de concatenado directo de texto) deben estar controlados en pocos puntos del programa. 
