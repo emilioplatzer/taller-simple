@@ -1,0 +1,30 @@
+#labels Reunion
+= Tercera Reunión =
+
+|| Fecha || Presentes ||
+|| 2/9 || Elba, Graciela, Raquel, Emilio ||
+
+= Cómo enviar HTML con datos =
+
+En esta reunión estuvimos trabajando sobre los problemas de enviar código HTML con datos desde el servidor y de las posibles soluciones. Teníamos en nuestro código algo similar a:
+
+{{{
+echo "<tr>
+        <td class=etiqueta_formulario title=$title>$leyenda</td>
+        <td><input id=$campo name=$campo type='text'></td>
+      </tr>";
+}}}
+
+
+== Acuerdos ==
+
+ # Evitar las variables con nombres negativos (vale también para nombres de campos en las bases de datos). Por ejemplo hay elementos HTML cuyos TAGS no tienen tag de cierre (por ejemplo INPUT), si tenemos una tabla con los nombres de tags posibles una variable podría ser "sin_cierre", ese nombre es negativo y eso agrega confusiones a la hora de programar o de comunicarse con el usuario. Feo queda un "if not sin_cierre", es preferible que la variable se llame solo_apertura o lo que sea. 
+
+
+== Cierre de la actividad ==
+
+Habiendo explorado una de las alternativas de solución quedamos que en la próxima reunión comenzamos el desarrollo de la otra alternativa.  
+
+== ¿Cómo seguimos? ==
+
+*Próxima reunión*: jueves 4/9 11:00 a 13:00
