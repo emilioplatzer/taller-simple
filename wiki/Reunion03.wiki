@@ -38,7 +38,8 @@ La principal desventaja de esta solución es la tentación de los programadores 
 == Solución 2: enviando los elementos de a uno ==
 
 La segunda solución consiste en usar una función para enviar cada elemento Separando el contenido de los asuntos y sus valores. Acá había dos alternativas para manejar los elementos que incluyen otros elementos:
- # enviar el contenido como parámetro
+
+ 1. enviar el contenido como parámetro
 {{{
 enviar_elemento('div',
   enviar_elemento('span',
@@ -47,8 +48,17 @@ enviar_elemento('div',
 );
 }}}
  
- # enviar la apertura y cierre de los elementos en funciones separadas:
+ 2. enviar la apertura y cierre de los elementos en funciones separadas:
 
+{{{
+abrir_elemento('div');
+  abrir_elemento('span');
+    enviar_texto("Este texto");
+  cerrar_elemento('span');
+cerrar_elemento('div');
+}}}
+
+Esto podría hacerse también sin la necesidad de indicar el tag al momento de cerrar. La ventaja de la primera opción es que no necesita controlar que uno no se olvide de cerrar los elementos. La ventaja de la segunda opción se da cuando los elementos internos deben ser calculados en un ciclo, aun cuando se pueda pasar todos los elementos en un arreglo
 
 == Acuerdos ==
 
