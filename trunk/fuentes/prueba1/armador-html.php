@@ -55,7 +55,7 @@ class ArmadorHtml{
             if(!isset($datos[$campo])){
                 throw new Exception("ArmadorHtml complejo: No esta la metavariable '$campo'");
             }
-            return htmlspecialchars($datos[$campo]);
+            return htmlentities($datos[$campo], ENT_COMPAT, "UTF-8");
         },$html_con_metavariables);
     }
 }
