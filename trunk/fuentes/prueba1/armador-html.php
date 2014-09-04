@@ -32,7 +32,7 @@ class ArmadorHtml{
                 echo ">"; // para cerrar el tag y que se vea la excepcion
                 throw new Exception("ArmadorHtml no existe el atributo '$nombre_atributo' en '$tag'");
             }
-            echo " $nombre_atributo=".'"'.str_replace(array('"','<', '>', '&'), array('\\"', '&lt;', '&gt;', '&amp;'), $contenido).'"';
+            echo " $nombre_atributo=".'"'.str_replace(array('&', '"','<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $contenido).'"';
         }
         echo ">";
     }
@@ -49,7 +49,14 @@ class ArmadorHtml{
     function elemento($tag, $atributos=array()){
         return $this->tag_con_atributos($tag, $atributos, true);
     }
-    function complejo($complejo, $datos1=array(), $datos2=array(), $datos3=array()){
+    function complejo($html_con_metavariables, $datos=array()){
+        echo preg_replace_callback('/#([A-Za-z]\w*)/',function($coincidencias) use ($datos){
+            $campo=$coincidencias[1];
+            if(!isset($datos[$campo])){
+                throw new Exception("ArmadorHtml complejo: No esta la metavariable '$campo'");
+            }
+            return htmlspecialchars($datos[$campo]);
+        },$html_con_metavariables);
     }
 }
 
