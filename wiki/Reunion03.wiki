@@ -58,7 +58,21 @@ abrir_elemento('div');
 cerrar_elemento('div');
 }}}
 
-Esto podría hacerse también sin la necesidad de indicar el tag al momento de cerrar. La ventaja de la primera opción es que no necesita controlar que uno no se olvide de cerrar los elementos. La ventaja de la segunda opción se da cuando los elementos internos deben ser calculados en un ciclo, aun cuando se pueda pasar todos los elementos en un arreglo
+Esto podría hacerse también sin la necesidad de indicar el tag al momento de cerrar. La ventaja de la primera opción es que no necesita controlar que uno no se olvide de cerrar los elementos. La ventaja de la segunda opción se da cuando los elementos internos deben ser calculados en un ciclo, aun cuando se pueda pasar todos los elementos en un arreglo es más cómodo y visual ir construyéndolos y enviándolos con las mismas instrucciones. 
+
+== Solución 3: interpolación controlada ==
+
+La ventaja de la interpolación es que es más visual y compacta la manera de escribir, planteamos para seguir en la próxima reunión pensar en una solución que pueda escribir algo como:
+
+{{{
+enviar_interpolando("
+  <div title=#title>
+    <label for=#campo>#leyenda</label>
+    <input id=#campo name=#campo type='text'>
+  </div>", $definicion_campos);
+}}}
+
+O sea llamamos a una función que se encarga de hacer la interpolación buscando los _placeholders_ dentro de la cadena (en vez de dejar la interpolación automática del PHP en base a variables que empiecen con $). Esto agregaría también la ventaja de usar claves en un arreglo en vez de verdaderas variables. 
 
 == Acuerdos ==
 
