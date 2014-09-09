@@ -10,3 +10,19 @@
 .titulo_formulario{
     text-align:center;
 }
+
+.tabla_listado{
+    width:100%;
+    border:1;
+}
+
+.titulo_listado{
+    text-align:center;
+}
+
+
+.celda_listado{
+    text-align:left;
+    font-size:10pt;
+    background-color:yellow;
+}
