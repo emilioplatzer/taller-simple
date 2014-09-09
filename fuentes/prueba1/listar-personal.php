@@ -10,9 +10,7 @@ function leer_personal($orden){
     $db=abrir_conexion();
     $sql_campos=array();
     $sql_campos=array_keys($estructura_personal);
-    //revisar$orden;
     $sql="SELECT ".implode(",",$sql_campos)."\n FROM prin.personal\n ORDER BY ".implode(",",$orden).";\n";
-    //echo "por ejecutar \n".$sql;
     $sentencia=$db->prepare($sql);
     $sentencia->execute();
     $leidos=$sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -24,7 +22,6 @@ function despachable_listar_personal(){
     echo <<<HTML
     <!DOCTYPE HTML>
     <html  lang="es">
-   
     <head>
         <meta charset="UTF-8">
         <title>TALLER SIMPLE</title>
@@ -34,9 +31,7 @@ function despachable_listar_personal(){
 HTML
 ;   
     $enviar=new ArmadorHtml(); 
-
     //escribir_header_columnas;
-    
     $orden=array('per_documento');
     $personal_leidos=leer_personal($orden);
     foreach ($personal_leidos as $persona){
@@ -44,12 +39,9 @@ HTML
         $armacol='';        
         foreach ($columnas as $columna) {
             $armacol.="\n".<<<HTML
-                <td class=celda_listado  name="$columna" type='text' #$columna </td>
+                <td class=celda_listado  name="$columna" type='text'> #$columna </td>
 HTML;
-        //echo "$persona[$columna] \t";
         }
-        //echo"\n";
-        //echo $armacol;
         $enviar->complejo(<<<HTML
             <tr>
                 {$armacol}
@@ -57,17 +49,14 @@ HTML;
 HTML
             , $persona
         );
-             
     }
-        $enviar->complejo(<<<HTML
+    $enviar->complejo(<<<HTML
         </table>
         </body>
         </html>
 HTML
-            , array()
-        );        
-    //escribir_pie
-
+        , array()
+    );        
     echo "\n<B>Listo";
 }
 
