@@ -50,13 +50,7 @@ class ArmadorHtml{
         return $this->tag_con_atributos($tag, $atributos, true);
     }
     function complejo($html_con_metavariables, $datos=array()){
-        echo preg_replace_callback('/#([A-Za-z]\w*)/',function($coincidencias) use ($datos){
-            $campo=$coincidencias[1];
-            if(!isset($datos[$campo])){
-                throw new Exception("ArmadorHtml complejo: No esta la metavariable '$campo'");
-            }
-            return htmlentities($datos[$campo], ENT_COMPAT, "UTF-8");
-        },$html_con_metavariables);
+        echo interpolador($html_con_metavariables, $datos);
     }
 }
 

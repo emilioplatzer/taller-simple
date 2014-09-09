@@ -25,6 +25,7 @@ function despachable_listar_personal(){
     <head>
         <meta charset="UTF-8">
         <title>TALLER SIMPLE</title>
+        <link rel="stylesheet" type="text/css" href="prueba1.css">
     </head>
     <table class=tabla_listado> 
     <h1 class=titulo_listado>Listado de Personal</h1>
@@ -34,14 +35,17 @@ HTML
     //escribir_header_columnas;
     $orden=array('per_documento');
     $personal_leidos=leer_personal($orden);
+    $primera_fila=$personal_leidos[0];
+    $columnas=array_keys($primera_fila); 
+    $armacol='';
+    foreach ($columnas as $columna) {
+        $enviar->complejo("<th class=celda_titulo>#leyenda</th>",$estructura_personal[$columna]);
+        $armacol.=interpolador("\n".<<<HTML
+            <td class=celda_listado  name="#columna" type='text'> ##columna </td>
+HTML
+        , array('columna'=>$columna));
+    }
     foreach ($personal_leidos as $persona){
-        $columnas= array_keys($estructura_personal); 
-        $armacol='';        
-        foreach ($columnas as $columna) {
-            $armacol.="\n".<<<HTML
-                <td class=celda_listado  name="$columna" type='text'> #$columna </td>
-HTML;
-        }
         $enviar->complejo(<<<HTML
             <tr>
                 {$armacol}
