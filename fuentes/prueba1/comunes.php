@@ -29,4 +29,5 @@ function interpolador($string_con_metavariables, $datos){
         return htmlentities($datos[$campo], ENT_COMPAT, "UTF-8");
     },$string_con_metavariables);
 }
+
 ?>

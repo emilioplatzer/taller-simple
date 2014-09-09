@@ -5,6 +5,20 @@ require_once "db.class.php";
 require_once "personal.php";
 require_once "estructura.php";
 
+function filtrar_campos($filas, $listado){
+    global $estructura_personal;      
+    $filas_filtradas = array();
+    foreach($filas as $fila){
+        $fila_filtrada = array();
+        foreach ($estructura_personal as $campo=>$definicion_campo){
+            if($definicion_campo['listados'][$listado]){
+                $fila_filtrada[$campo]=$fila[$campo];
+            }
+        }
+        $filas_filtradas[]=$fila_filtrada;
+    }
+    return $filas_filtradas;
+}
 function leer_personal($orden){
     global $estructura_personal;
     $db=abrir_conexion();
@@ -16,8 +30,10 @@ function leer_personal($orden){
     $leidos=$sentencia->fetchAll(PDO::FETCH_ASSOC);
     return $leidos;    
 }
-
-function despachable_listar_personal(){
+function despachable_listar_agenda(){
+    despachable_listar_personal('agenda');
+}
+function despachable_listar_personal($que_listado='general'){
     global $estructura_personal;  
     echo <<<HTML
     <!DOCTYPE HTML>
@@ -35,6 +51,7 @@ HTML
     //escribir_header_columnas;
     $orden=array('per_documento');
     $personal_leidos=leer_personal($orden);
+    $personal_leidos=filtrar_campos($personal_leidos, $que_listado);
     $primera_fila=$personal_leidos[0];
     $columnas=array_keys($primera_fila); 
     $armacol='';
