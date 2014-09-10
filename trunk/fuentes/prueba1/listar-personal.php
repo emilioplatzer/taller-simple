@@ -4,7 +4,7 @@ require_once "comunes.php";
 require_once "db.class.php";
 require_once "personal.php";
 require_once "estructura.php";
-
+/*
 function filtrar_campos($filas, $listado){
     global $estructura_personal;      
     $filas_filtradas = array();
@@ -19,12 +19,13 @@ function filtrar_campos($filas, $listado){
     }
     return $filas_filtradas;
 }
-function leer_personal($orden){
+*/
+function leer_personal($que_campos,$orden){
     global $estructura_personal;
     $db=abrir_conexion();
-    $sql_campos=array();
-    $sql_campos=array_keys($estructura_personal);
-    $sql="SELECT ".implode(",",$sql_campos)."\n FROM prin.personal\n ORDER BY ".implode(",",$orden).";\n";
+    //$sql_campos=array();
+    //$sql_campos=array_keys($estructura_personal);
+    $sql="SELECT ".implode(",",$que_campos)."\n FROM prin.personal\n ORDER BY ".implode(",",$orden).";\n";
     $sentencia=$db->prepare($sql);
     $sentencia->execute();
     $leidos=$sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -50,8 +51,15 @@ HTML
     $enviar=new ArmadorHtml(); 
     //escribir_header_columnas;
     $orden=array('per_documento');
-    $personal_leidos=leer_personal($orden);
-    $personal_leidos=filtrar_campos($personal_leidos, $que_listado);
+    //$sql_campos=array();
+    //$sql_campos=array_keys($estructura_personal);
+    $arreglo_filtrado=array_filter($estructura_personal, 
+        function ($element) use ($que_listado) {
+        return ($element['listados']["$que_listado"]==true ); 
+        } );
+    $sql_campos=array_keys($arreglo_filtrado);
+    $personal_leidos=leer_personal($sql_campos,$orden);
+    //$personal_leidos=filtrar_campos($personal_leidos, $que_listado);
     $primera_fila=$personal_leidos[0];
     $columnas=array_keys($primera_fila); 
     $armacol='';
