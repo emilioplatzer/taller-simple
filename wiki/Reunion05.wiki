@@ -72,4 +72,4 @@ Usamos la estructura de la tabla personas para armar los listados. Nos beneficia
 
 Queda de deber mejorar el filtrado (o selección) de campos de modo de que el SQL se arme con los campos que necesitamos. 
 
-*Próxima reunión*: jueves 16/9 11:00 a 13:00
+*Próxima reunión*: martes 16/9 11:00 a 13:00
