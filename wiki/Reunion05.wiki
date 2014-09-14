@@ -1,0 +1,59 @@
+#labels Reunion
+= Quinta Reunión =
+
+|| Fecha || Presentes ||
+|| 9/9 || Elba, Graciela, Raquel, Mauro, Emilio ||
+
+= Doble interpolación =
+
+Empezamos revisando la tarea hecha por Raquel, mostrar por pantalla el listado de los datos cargados. Ella se encontró con la necesidad de hacer doble interpolación. Al preparar el cuadro se itera por los campos de la estructura obteniendo sus nombres y características, en este ciclo se prepara una variable de texto con un _placholder_ para cada uno de los campos donde colocar los valores de cada una de las filas a listar. 
+
+Vamos despacio y de abajo para arriba. 
+
+Cuando mostramos un listado (suponiendo que enviamos los datos dentro del HTML) iteramos por las filas leídas inyectando los datos de cada fila en el código HTML de la fila. Algo así como:
+
+{{{
+while($fila_leida = leer_fila()){
+    enviar_interpolando(<<<HTML
+      <tr><td class='columna_numerica'>#documento</td>
+          <td class='columna_texto'>#nombre</td>
+          <td class='columna_texto'>#apellido</td>
+          ...
+      </tr>
+HTML
+      , $fila_leida);
+}
+}}}
+
+así la fila leída (que contiene los campos documento, nombre, apellido, ...) es interpolada dentro del código HTML). El problema es que no queremos escribir ese código HTML a mano dentro de nuestro código, lo queremos en una variable de texto que se construya recorriendo la estructura de la tabla que queremos listar. Algo así como:
+
+{{{
+// armar el código HTML con los placeholders
+$codigo_html_fila="<tr>";
+foreach($estructura_tabla as $definicion_campo){
+    $codigo_html_fila.=interpolador(
+       "<td class='#clase_columna'>##nombre_campo</td>",
+       $definicion_campo
+    );
+$codigo_html_fila.="</tr>";
+// ...
+// mostrar los datos leídos
+while($fila_leida = leer_fila()){
+    enviar_interpolando($codigo_html_fila, $fila_leida);
+}
+}}}
+
+La definción de los campos tiene como mínimo dos atributos "clase_columna" y "nombre_campo" lo que hace que el código HTML que armamos tenga lo que necesitamos. 
+
+Vemos acá que la definición de campos podría tener otros atributos que no necesitamos, según lo que estamos haciendo parecería cómodo permitir que en los datos que recibe el interpolador haya más campos que los necesarios (pero no menos). 
+
+
+== Acuerdos ==
+
+
+== Cierre de la actividad ==
+
+
+== ¿Cómo seguimos? ==
+
+*Próxima reunión*: jueves 16/9 11:00 a 13:00
