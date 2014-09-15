@@ -57,7 +57,7 @@ Discutimos varias alternativas sobre cómo incluir ese conocimiento. Lo que qued
  # Teniendo una lista de listados y dentro de cada listado los nombres de los campos que entran
  # Teniendo en la definición de cada campo a qué listados debe pertenecer
 
-Ambas son factibles (elegimos la segunda) y la pregunta para resolverla es ¿qué vamos a agregar con mayor frecuencia, listados o campos? Si agrego un campo podría pensar tiene que estar en los mismos listados que tal otro campo (salvo tal o cual excepción), si agrego un listado tendría que tiene que tener casi los mismos campos que tal otro listado. Ahí estoy pensando en copiar y pegar definiciones (y en copiar y pegar en forma cruzada o con expresiones regulares en el caso de haber elegido la opción incómoda en relación a lo que quiero agregar). Llegado el momento vamos a tener que pensar si hay un modo de abstraer o hacer definiciones gerárquicas. 
+Ambas son factibles (elegimos la segunda) y la pregunta para resolverla es ¿qué vamos a agregar con mayor frecuencia, listados o campos? Si agrego un campo podría pensar tiene que estar en los mismos listados que tal otro campo (salvo tal o cual excepción), si agrego un listado tendría que tiene que tener casi los mismos campos que tal otro listado. Ahí estoy pensando en copiar y pegar definiciones (y en copiar y pegar en forma cruzada o con expresiones regulares en el caso de haber elegido la opción incómoda en relación a lo que quiero agregar). Llegado el momento vamos a tener que pensar si hay un modo de abstraer o hacer definiciones jerárquicas. 
 
 == Acuerdos ==
 
