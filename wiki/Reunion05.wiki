@@ -63,6 +63,7 @@ Ambas son factibles (elegimos la segunda) y la pregunta para resolverla es ¿qu�
 
  # Vamos a intentar usar interpolación controlada en todos los puntos donde se arme código fuente dentro de variables de texto (ya sea código HTML, SQL, CSS o lo que sea)
  # No usamos el RecorteBruto. Por ejemplo de no usamos una función que trae todas las columnas y todas filas de una tabla de la base de datos para luego filtrar los datos que necesitamos aún cuando eso parezca más sencillo que enviar el filtro en el SQL. 
+ # Siempre colocamos ORDER BY en nuestras consultas SQL porque queremos que todos nuestros procesos sean [Reproducible reproducibles]. O sea que no agregamos cualquier ORDER BY sino uno que determine un orden total. 
 
 == Cierre de la actividad ==
 
