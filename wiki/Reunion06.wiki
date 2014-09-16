@@ -1,6 +1,10 @@
 == Plan ==
 
  * Agregar la posibilidad de cargar y ver los *Proyectos* en los cuales puede participar el personal
+ * Definir las PK (o las identidades de las entidades)
  * Permisos (logueo), tablas, listados, campos, filas, opciones de menú y en general todo tiene que tener permisos. 
  * Manejo de los tipos de columnas (o tipos de datos), para en principio poder validar o crear los campos al instalar. 
  * Menú
+
+ * Definir FK
+ * Definir la estética de los campos
