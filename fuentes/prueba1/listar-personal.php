@@ -4,27 +4,10 @@ require_once "comunes.php";
 require_once "db.class.php";
 require_once "personal.php";
 require_once "estructura.php";
-/*
-function filtrar_campos($filas, $listado){
-    global $estructura_personal;      
-    $filas_filtradas = array();
-    foreach($filas as $fila){
-        $fila_filtrada = array();
-        foreach ($estructura_personal as $campo=>$definicion_campo){
-            if($definicion_campo['listados'][$listado]){
-                $fila_filtrada[$campo]=$fila[$campo];
-            }
-        }
-        $filas_filtradas[]=$fila_filtrada;
-    }
-    return $filas_filtradas;
-}
-*/
+
 function leer_personal($que_campos,$orden){
     global $estructura_personal;
     $db=abrir_conexion();
-    //$sql_campos=array();
-    //$sql_campos=array_keys($estructura_personal);
     $sql="SELECT ".implode(",",$que_campos)."\n FROM prin.personal\n ORDER BY ".implode(",",$orden).";\n";
     $sentencia=$db->prepare($sql);
     $sentencia->execute();
@@ -51,15 +34,13 @@ HTML
     $enviar=new ArmadorHtml(); 
     //escribir_header_columnas;
     $orden=array('per_documento');
-    //$sql_campos=array();
-    //$sql_campos=array_keys($estructura_personal);
     $arreglo_filtrado=array_filter($estructura_personal, 
-        function ($element) use ($que_listado) {
-        return ($element['listados']["$que_listado"]==true ); 
-        } );
+        function ($definicion_campo) use ($que_listado) {
+            return !!$definicion_campo['enlistados'][$que_listado];
+        } 
+    );
     $sql_campos=array_keys($arreglo_filtrado);
     $personal_leidos=leer_personal($sql_campos,$orden);
-    //$personal_leidos=filtrar_campos($personal_leidos, $que_listado);
     $primera_fila=$personal_leidos[0];
     $columnas=array_keys($primera_fila); 
     $armacol='';
