@@ -1,0 +1,19 @@
+= Recorte Bruto =
+<p align=right>
+Premature optimization<br>
+is the root of all evil.<br>
+– D. Knuth
+
+<p align=right>
+On the other hand,<br>
+we cannot ignore efficiency.<br>
+– Jon Bentley
+
+Si bien queremos mantener el principio de hacer todo lo más simple posible (y dentro de lo posible elegante) tenemos que cuidarnos de que nuestras simplificaciones no sean del tipo:
+
+{{{
+  Saco la bolsa entera de milanesas del freezer
+  Espero a que se descongelen
+  Saco una milanesa de la bolsa
+  Vuelvo a meter la bolsa en el freezer
+}}}
