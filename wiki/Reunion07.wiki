@@ -14,3 +14,5 @@ Nuestro modelo hablaba de *entidades* que era nuestra metáfora para todo candid
 En nuestra tarea, generalmente tenemos que tratar de llamar a las cosas como las llaman los usuarios, pero puede haber problemas en la comunicación, como en el caso de clasificar a las consistencias en errores (no puede haber falsos positivos) y advertencias (puede haber falsos positivos). Preferimos en definitiva usar los términos _error_ y _advertencia_ que todos entendemos bien.
 
 En nuestra aplicación tenemos que modelar un proceso de reclutamiento, que no es considerado por nuestros usuarios como un _proyecto_, que son los operativos. No nos conviene generalizar un concepto que el usuario va a pensar como algo más restrictivo, así que empezamos a pensar un sinónimo para la palabra _proyecto_, elegimos la palabra _actividad_
+
+Ahora, necesitamos imaginarnos el menú, pensando en nuestro despachador. El que define el modelo puede agregar todas las entidades que quiera 
