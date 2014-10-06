@@ -15,4 +15,6 @@ En nuestra tarea, generalmente tenemos que tratar de llamar a las cosas como las
 
 En nuestra aplicación tenemos que modelar un proceso de reclutamiento, que no es considerado por nuestros usuarios como un _proyecto_, que son los operativos. No nos conviene generalizar un concepto que el usuario va a pensar como algo más restrictivo, así que empezamos a pensar un sinónimo para la palabra _proyecto_, elegimos la palabra _actividad_
 
-Ahora, necesitamos imaginarnos el menú, pensando en nuestro despachador. El que define el modelo puede agregar todas las entidades que quiera 
+Ahora, necesitamos imaginarnos el menú, pensando en nuestro despachador. El que define el modelo puede agregar todas las entidades que quiera. El motor sabrá que cosas puede hacer con esas entidades. Es lógico que el menú se estructure en función del modelo, pero las entidades no son las únicas opciones para el menú (están también el _salir_, _cambiar password_, etc.)
+
+Recordemos que uno de nuestros acuerdos era que armábamos los strings siempre en un mismo lugar, en nuestro caso el armador_html. Ahora tenenos que generar las url's para poder ir a ellas a través del menú.     
