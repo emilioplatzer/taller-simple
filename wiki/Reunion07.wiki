@@ -1,4 +1,4 @@
-#labels Reunión
+#labels Reunion
 Séptima Reunión
 
 ||Fecha||Presentes||
