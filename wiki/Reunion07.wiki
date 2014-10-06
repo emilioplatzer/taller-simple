@@ -1,0 +1,16 @@
+Séptima Reunión
+
+||Fecha||Presentes||
+||2/10||Stefania, Graciela, Raquel, Mauro, Emilio, Elba||
+
+Por ahora, si bien tenemos el motor (aplicación) separado del modelo de negocios lo cual es muy bueno, el modelo está representado en el programa por variables globales, lo cual tendremos que mejorar.
+
+=Reflexión=
+La reflexión es el mecanismo por el cual un programa se consulta a si mismo sobre sus componentes o comportamiento. Entonces, no debería ser  necesario usar un mecanismo de reflexión, si tenemos el motor separado del modelo, es decir: ¿por qué sería necesario mirarme a mí mismo?, muy probablemente porque tengo los metadatos mezclados con el programa.
+Un caso donde la reflexión está bien aplicada es cuando estamos programando casos de prueba. 
+
+=Modelando=
+Nuestro modelo hablaba de *entidades* que era nuestra metáfora para todo candidato a tabla, sin embargo, existen *entidades complejas* como _encuesta_ que contiene _vivienda, hogar, personas, respuestas, etc_. Cuando estoy modelando entiendo la realidad pero construyo un modelo que está separado de la realidad. Y en el camino, ir haciendo cosas que funcionen, nos ayuda a modelar.
+En nuestra tarea, generalmente tenemos que tratar de llamar a las cosas como las llaman los usuarios, pero puede haber problemas en la comunicación, como en el caso de clasificar a las consistencias en errores (no puede haber falsos positivos) y advertencias (puede haber falsos positivos). Preferimos en definitiva usar los términos _error_ y _advertencia_ que todos entendemos bien.
+
+En nuestra aplicación tenemos que modelar un proceso de reclutamiento, que no es considerado por nuestros usuarios como un _proyecto_, que son los operativos. No nos conviene generalizar un concepto que el usuario va a pensar como algo más restrictivo, así que empezamos a pensar un sinónimo para la palabra _proyecto_, elegimos la palabra _actividad_
