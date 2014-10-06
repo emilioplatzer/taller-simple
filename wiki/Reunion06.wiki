@@ -1,4 +1,4 @@
-#labels Reunión
+#labels Reunion
 == Plan ==
 
  * Agregar la posibilidad de cargar y ver los *Proyectos* en los cuales puede participar el personal
