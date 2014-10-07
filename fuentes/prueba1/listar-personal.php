@@ -2,7 +2,6 @@
 
 require_once "comunes.php";
 require_once "db.class.php";
-require_once "personal.php";
 require_once "estructura.php";
 
 function leer_personal($que_campos,$orden){
