@@ -2,20 +2,20 @@
 require_once("comunes.php");
 require_once("armador-html.php");
 //require_once("main.html");
-function armaFormulario($entidad){
-    $array_campos=$entidad['campos'];
+function armaFormulario($entidad_def){
+    $array_campos=$entidad_def['campos'];
     $enviar=new ArmadorHtml();
     $enviar->complejo(<<<HTML
     <form action="#url" method="post" enctype="multipart/form-data"> 
     <table class=tabla_formulario> 
-    <h1 class=titulo_formulario>#nombre_entidad</h1>
+    <h1 class=titulo_formulario>#entidad_nombre</h1>
 HTML
         ,array(
             'url'=>armar_url(array(
                 'hacer'=>'grabar_entidad',
-                'entidad'=>$entidad['id_entidad']
+                'entidad_id'=>$entidad_def['entidad_id']
             )),
-            'nombre_entidad'=>$entidad['nombre_entidad']
+            'entidad_nombre'=>$entidad_def['entidad_nombre']
         )
     );
     $enviar=new ArmadorHtml();  

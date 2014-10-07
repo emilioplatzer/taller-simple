@@ -6,14 +6,14 @@ require_once "estructura.php";
 
 function despachable_agregar_entidad($parametros){
     global $modelo;
-    $entidad=$modelo['entidades'][$parametros['entidad']];
-    armaFormulario($entidad);
+    $entidad_def=$modelo['entidades'][$parametros['entidad_id']];
+    armaFormulario($entidad_def);
 }
 
 function despachable_grabar_entidad($parametros){
     global $modelo;
-    $id_entidad=$parametros['entidad'];
-    $estructura=$modelo['entidades'][$id_entidad];
+    $entidad_id=$parametros['entidad_id'];
+    $estructura=$modelo['entidades'][$entidad_id];
     $db = abrir_conexion();
     foreach ($estructura['campos'] as $campo=>$dummy){
         $datos_a_insertar[$campo]=$_POST[$campo];            
