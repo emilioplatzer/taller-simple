@@ -24,7 +24,7 @@ function interpolador($string_con_metavariables, $datos){
     return preg_replace_callback('/#([A-Za-z]\w*)/',function($coincidencias) use ($datos){
         $campo=$coincidencias[1];
         if(!isset($datos[$campo])){
-            throw new Exception("ArmadorHtml complejo: No esta la metavariable '$campo'");
+            throw new Exception("interpolador complejo: No esta la metavariable '$campo'");
         }
         return htmlentities($datos[$campo], ENT_COMPAT, "UTF-8");
     },$string_con_metavariables);

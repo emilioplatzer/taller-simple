@@ -18,22 +18,28 @@ $modelo=array(
                 'agenda'=>array(),
             )
         ),
-        'proyectos'=>array(
+        'actividades'=>array(
+            'nombre_entidad'=>'Actividades (operativos, procesos, etc)',
             'campos'=>array(
-                'pro_nombre' =>array('leyenda'=>'Nombre'             ),
-                'pro_periodo'=>array('leyenda'=>'Período'            ),
+                'act_nombre' =>array('leyenda'=>'Nombre'             ),
+                'act_tipo'   =>array('leyenda'=>'Tipo'               ),
+                'act_abierta'=>array('leyenda'=>'Abierta'            ),
             ),
             'listados'=>array(
                 'general'=>array(),
                 'vigentes'=>array(),
+                'cerrados'=>array(),
             )
         )
     ),
 );
 
-echo "<pre>POR CORRER:\n</pre>";
-
-foreach($modelo['entidades'] as &$entidad){
+foreach($modelo['entidades'] as $id_entidad=>&$entidad){
+    $entidad+=array(
+        'nombre_entidad'=>$id_entidad,
+        'nombre_tabla'  =>$id_entidad
+    );
+    $entidad['id_entidad']=$id_entidad;
     adaptar_estructura_campos($entidad['campos'],$entidad['listados']);
 }
 
