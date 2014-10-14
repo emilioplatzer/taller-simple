@@ -40,21 +40,24 @@ $modelo=array(
     ),
 );
 
-foreach($modelo['entidades'] as $entidad_id=>&$entidad_def){
-    $entidad_def+=array(
-        'entidad_nombre'=>$entidad_id,
-        'nombre_tabla'  =>$entidad_id
-    );
-    $entidad_def['entidad_id']=$entidad_id;
-    adaptar_estructura_campos($entidad_def['campos'],$entidad_def['listados']);
-    foreach($entidad_def['listados'] as $listado_id=>&$listado_def){
-        $listado_def+=array(
-            'listado_nombre'=>$listado_id,
-            'listado_orden'=>$entidad_def['entidad_orden']
+function adaptar_estructura_total(){
+    global $modelo;
+    foreach($modelo['entidades'] as $entidad_id=>&$entidad_def){
+        $entidad_def+=array(
+            'entidad_nombre'=>$entidad_id,
+            'nombre_tabla'  =>$entidad_id
         );
+        $entidad_def['entidad_id']=$entidad_id;
+        adaptar_estructura_campos($entidad_def['campos'],$entidad_def['listados']);
+        foreach($entidad_def['listados'] as $listado_id=>&$listado_def){
+            $listado_def+=array(
+                'listado_nombre'=>$listado_id,
+                'listado_orden'=>$entidad_def['entidad_orden']
+            );
+        }
     }
 }
-
+    
 function adaptar_estructura_campos(&$estructura_tabla, $listados_entidad/*NORMALIZAR!*/){
     foreach($estructura_tabla as $campo_id=>&$campo_def){
         $campo_def+=array(
@@ -73,4 +76,5 @@ function adaptar_estructura_campos(&$estructura_tabla, $listados_entidad/*NORMAL
     }
 }
 
+adaptar_estructura_total();
 ?>

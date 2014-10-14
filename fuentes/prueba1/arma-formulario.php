@@ -18,7 +18,6 @@ HTML
             'entidad_nombre'=>$entidad_def['entidad_nombre']
         )
     );
-    $enviar=new ArmadorHtml();  
     foreach($array_campos as $campo_id=>$campo_def){
         $enviar->complejo(<<<HTML
             <tr>
