@@ -15,8 +15,8 @@ function despachable_grabar_entidad($parametros){
     $entidad_id=$parametros['entidad_id'];
     $estructura=$modelo['entidades'][$entidad_id];
     $db = abrir_conexion();
-    foreach ($estructura['campos'] as $campo=>$dummy){
-        $datos_a_insertar[$campo]=$_POST[$campo];            
+    foreach ($estructura['campos'] as $campo_id=>$dummy){
+        $datos_a_insertar[$campo_id]=$_POST[$campo_id];            
     }        
     $sql_datos=array();
     $sql_columnas=array(); // lado izquierdo del insert

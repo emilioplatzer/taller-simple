@@ -1,0 +1,19 @@
+
+
+SELECT #,CAMPOS
+  from #tabla
+  where #&FILTRO
+  
+UPDATE #tabla
+  SET #=vars_a_Set       
+  WHERE #&filtro
+
+INSERT INTO #tabla
+  (#;val_ins) VALUES (#:val_ins)
+  
+  array(
+    'CAMPOS'=>array('per_per','per_nombre',...
+    'FILTRO'=>array('per_per'=>'333333')
+    'vars_a_Set'=>array('per_nombre'=>'pepe','per_apellido'=>'Juarexz')
+    'tabla'=>'personas'
+    'val_ins'=>array('per_per'=>'333333','per_nombre'=>'pepe','per_apellido'=>'Juarexz')

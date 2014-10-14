@@ -5,7 +5,7 @@ $modelo=array(
     'entidades'=>array(
         'personal'=>array(
             'campos'=>array(
-                'per_documento'=>array('leyenda'=>'DNI'            ,'aclaracion'=>'sin "puntitos" ni otros signos'),
+                'per_per'      =>array('leyenda'=>'DNI'            ,'aclaracion'=>'sin "puntitos" ni otros signos', 'es_pk'=>true),
                 'per_cuil'     =>array('leyenda'=>'CUIL'           ,'enlistados'=>array('general'=>false), 'aclaracion'=>'sin guiones'),
                 'per_nombre'   =>array('leyenda'=>'Nombre'         ,'enlistados'=>array('agenda'=>true) ),
                 'per_apellido' =>array('leyenda'=>'Apellido'       ,'enlistados'=>array('agenda'=>true) ),
@@ -13,7 +13,7 @@ $modelo=array(
                 'per_mail'     =>array('leyenda'=>'Mail "personal"','enlistados'=>array('agenda'=>true) ),
                 'per_direccion'=>array('leyenda'=>'Dirección'      ),
             ),
-            'entidad_orden'=>array('per_documento'),
+            'entidad_orden'=>array('per_per'),
             'listados'=>array(
                 'general'=>array(),
                 'agenda'=>array(
@@ -25,6 +25,7 @@ $modelo=array(
         'actividades'=>array(
             'entidad_nombre'=>'Actividades (operativos, procesos, etc)',
             'campos'=>array(
+                'act_act'    =>array('leyenda'=>'Nombre corto (id)'  , 'es_pk'=>true),
                 'act_nombre' =>array('leyenda'=>'Nombre'             ),
                 'act_tipo'   =>array('leyenda'=>'Tipo'               ),
                 'act_abierta'=>array('leyenda'=>'Abierta'            ),
@@ -55,18 +56,20 @@ foreach($modelo['entidades'] as $entidad_id=>&$entidad_def){
 }
 
 function adaptar_estructura_campos(&$estructura_tabla, $listados_entidad/*NORMALIZAR!*/){
-    foreach($estructura_tabla as $campo=>&$definicion_campo){
-        $definicion_campo+=array(
+    foreach($estructura_tabla as $campo_id=>&$campo_def){
+        $campo_def+=array(
             'aclaracion'=>'',
-            'nombre_campo'=>$campo,
-            'enlistados'=>array()
+            'nombre_campo'=>$campo_id,
+            'puede_leer_de_db'=>true,
+            'enlistados'=>array(),
+            'es_pk'=>false,
         );
         $valor_por_defecto_enlistados=array();
         foreach($listados_entidad as $listado_id=>$dummy){
             $valor_por_defecto_enlistados[$listado_id]=false;
         }
         $valor_por_defecto_enlistados['general']=true;
-        $definicion_campo['enlistados']+=$valor_por_defecto_enlistados;
+        $campo_def['enlistados']+=$valor_por_defecto_enlistados;
     }
 }
 

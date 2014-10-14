@@ -21,12 +21,12 @@ function seguro($algo, $uso='codigo'){
 }
 
 function interpolador($string_con_metavariables, $datos){
-    return preg_replace_callback('/#([A-Za-z]\w*)/',function($coincidencias) use ($datos){
-        $campo=$coincidencias[1];
-        if(!isset($datos[$campo])){
-            throw new Exception("interpolador complejo: No esta la metavariable '$campo'");
+    return preg_replace_callback('/#([A-Za-z_]\w*)/',function($coincidencias) use ($datos){
+        $clave=$coincidencias[1];
+        if(!isset($datos[$clave])){
+            throw new Exception("interpolador complejo: No esta la metavariable '$clave'");
         }
-        return htmlentities($datos[$campo], ENT_COMPAT, "UTF-8");
+        return htmlentities($datos[$clave], ENT_COMPAT, "UTF-8");
     },$string_con_metavariables);
 }
 
