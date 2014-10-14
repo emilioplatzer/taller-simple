@@ -35,8 +35,8 @@ function despachable_listar_entidad($parametros){
 HTML
     , $entidad_def);   
     $arreglo_filtrado=array_filter($entidad_campos, 
-        function ($definicion_campo) use ($listado_id) {
-            return !!$definicion_campo['enlistados'][$listado_id];
+        function ($campo_def) use ($listado_id) {
+            return !!$campo_def['enlistados'][$listado_id];
         } 
     );
     $listado_orden=$listado_def['listado_orden'];
@@ -45,6 +45,8 @@ HTML
     $primera_fila=$filas_leidas[0];
     $columnas=array_keys($primera_fila); 
     $armacol='';
+    $enviar->complejo("<th>");
+    $armacol.='<td><a href="#___url">esto se ve como un lapiz</a></td>';
     foreach ($columnas as $columna) {
         $enviar->complejo("<th class=celda_titulo>#leyenda</th>",$entidad_campos[$columna]);
         $armacol.=interpolador("\n".<<<HTML
@@ -52,14 +54,22 @@ HTML
 HTML
         , array('columna'=>$columna));
     }
-    foreach ($filas_leidas as $persona){
+    foreach ($filas_leidas as $fila){
         $enviar->complejo(<<<HTML
             <tr>
                 {$armacol}
             </tr>
 HTML
-            , $persona
+            , array_merge(
+                $fila,
+                array('___url'=>armar_url(array(
+                    'hacer'=>'editar_entidad',
+                    'entidad_id'=>$entidad_id,
+                    'pk'=>$fila['per_per'] // GENERALIZAR PARA OTRAS ENTIDADES
+                )))
+            )
         );
+        // throw new Exception("tengo en columna ".json_encode($columna
     }
     $enviar->complejo(<<<HTML
         </table>

@@ -2,7 +2,7 @@
 require_once("comunes.php");
 require_once("armador-html.php");
 //require_once("main.html");
-function armaFormulario($entidad_def){
+function armaFormulario($entidad_def,$datos=array()){
     $array_campos=$entidad_def['campos'];
     $enviar=new ArmadorHtml();
     $enviar->complejo(<<<HTML
@@ -19,20 +19,21 @@ HTML
         )
     );
     $enviar=new ArmadorHtml();  
-    foreach($array_campos as $campo=>$definicion_campo){
+    foreach($array_campos as $campo_id=>$campo_def){
         $enviar->complejo(<<<HTML
             <tr>
               <td class=etiqueta_formulario title="#aclaracion">#leyenda</td>
-              <td><input id="#nombre_campo" name="#nombre_campo" type='text'></td> 
+              <td><input id="#nombre_campo" name="#nombre_campo" type='text' value="#valor"></td> 
             </tr>
 HTML
-            , $definicion_campo
+            , array_merge(
+                $campo_def,
+                array('valor'=>isset($datos[$campo_id])?$datos[$campo_id]:'')
+            )
         );
     }
     echo <<<HTML2
-    <td><div align="right"> 
-    <input id="Restablecer" name="Restablecer" type="reset" id="Restablecer" value="Restablecer"> 
-    </div></td> 
+    <td></td> 
     <td><input id="agregar" name="agregar" type="submit" id="agregar" value="Agregar"></td> 
     </tr> 
     </table> 
