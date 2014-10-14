@@ -17,3 +17,19 @@ INSERT INTO #tabla
     'vars_a_Set'=>array('per_nombre'=>'pepe','per_apellido'=>'Juarexz')
     'tabla'=>'personas'
     'val_ins'=>array('per_per'=>'333333','per_nombre'=>'pepe','per_apellido'=>'Juarexz')
+    
+    
+$nombre='pepe';
+$apellido="Garcia";
+$sql="insert into alumnos(nombre, apellido) values ('$nombre','$apellido');" 
+-- $sql="insert into alumnos(nombre, apellido) values ('pepe','Garcia');" 
+
+$nombre="'); update table usuarios set superuser=true; select ('";
+$apellido="Garcia";
+
+
+$nombre=escape($nombre);
+$apellido=escape($apellido); '   ''
+$sql="insert into alumnos(nombre, apellido, edad, nacimiento) values (:nombre,:apellido,:edad,:nac);" 
+$s=$db->prepare($sql);
+$s->execute(array(':nombre'=>'Pedro',':apellido'=>'Gomez',':edad'=>8,':nac'=>new Date(1990,3,21)));
