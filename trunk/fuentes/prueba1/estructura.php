@@ -40,6 +40,45 @@ $modelo=array(
     ),
 );
 
+adaptar_estructura($modelo,
+    array(
+        'entidades'=>array(
+            'tipo'=>'array',
+            'atributos'=>array(
+                'entidad_nombre'=>array('predeterminado_especial'=>'id'),
+                'nombre_tabla'=>array('predeterminado_especial'=>'id'),
+                'entidad_id'=>array('predeterminado_especial'=>'id'),
+                'campos'=>array(
+                    'tipo'=>'array',
+                    'atributos'=>array(
+                        'aclaracion'=>'',
+                        'nombre_campo'=>array('predeterminado_especial'=>'id'),
+                        'puede_leer_de_db'=>true,
+                        'enlistados'=>array(
+                            'tipo'=>'array',
+                            'valor_predeterminado'=>array()
+                        ),
+                        'es_pk'=>false,
+                    )
+                ),
+                'entidad_orden'=>array(
+                    'tipo'=>'array',
+                    'valores'=>array('tipo'=>'texto')
+                ),
+                'listados'=>array(
+                    'tipo'=>'array',
+                    'atributos'=>array(
+                        'listado_nombre'=>array('predeterminado_especial'=>'id'),
+                        'listado_orden'=>array(
+                            'predeterminado_especial'='../../entidad_orden'
+                        )
+                    )
+                ),
+            )
+        )
+    )
+);
+
 function adaptar_estructura_total(){
     global $modelo;
     foreach($modelo['entidades'] as $entidad_id=>&$entidad_def){
