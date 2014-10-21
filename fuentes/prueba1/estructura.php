@@ -40,6 +40,7 @@ $modelo=array(
     ),
 );
 
+if(!"por ahora no, tienen que funcionar las pruebas primero"){
 adaptar_estructura($modelo,
     array(
         'entidades'=>array(
@@ -78,6 +79,7 @@ adaptar_estructura($modelo,
         )
     )
 );
+}
 
 function adaptar_estructura_total(){
     global $modelo;
