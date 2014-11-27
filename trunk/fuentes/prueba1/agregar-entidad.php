@@ -6,8 +6,10 @@ require_once "estructura.php";
 
 function despachable_agregar_entidad($parametros){
     global $modelo;
-    $entidad_def=$modelo['entidades'][$parametros['entidad_id']];
-    armaFormulario($entidad_def);
+    armaFormulario(array(
+        'entidad_def'=>$modelo['entidades'][$parametros['entidad_id']],
+        'boton_accion'=>array('hacer'=>'grabar_entidad', 'id'=>'agregar', 'leyenda'=>'Agregar')
+    ));
 }
 
 function despachable_grabar_entidad($parametros){

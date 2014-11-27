@@ -8,8 +8,15 @@ function despachable_editar_entidad($parametros){
     global $modelo;
     $entidad_def=$modelo['entidades'][$parametros['entidad_id']];
     $pk=$parametros['pk'];
-    $entidad_datos=leer_datos_entidad($entidad_def,$pk);
-    armaFormulario($entidad_def,$entidad_datos);
+    armaFormulario(array(
+        'entidad_def'=>$entidad_def, 
+        'datos'=>leer_datos_entidad($entidad_def,$pk),
+        'boton_accion'=>array(
+            'hacer'=>'grabar_registro',
+            'id'=>'grabar',
+            'leyenda'=>'Grabar'
+        )
+    ));
 }
 
 ?>

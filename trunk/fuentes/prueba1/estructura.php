@@ -71,7 +71,7 @@ adaptar_estructura($modelo,
                     'atributos'=>array(
                         'listado_nombre'=>array('predeterminado_especial'=>'id'),
                         'listado_orden'=>array(
-                            'predeterminado_especial'='../../entidad_orden'
+                            'predeterminado_especial'=>'../../entidad_orden'
                         )
                     )
                 ),
