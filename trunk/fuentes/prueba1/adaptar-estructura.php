@@ -26,6 +26,10 @@ function adaptar_estructura(&$datos, $estructura){
                     $valor_predeterminado=$valor_campo;        
                 }
                 $elemento[$nombre_campo]=$valor_predeterminado;
+            } else {
+                if(is_array($valor_campo) && isset($valor_campo['atributos'])){
+                    adaptar_estructura($elemento[$nombre_campo],$valor_campo);
+                }
             }
         }
     }

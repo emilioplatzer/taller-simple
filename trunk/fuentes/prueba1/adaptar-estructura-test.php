@@ -120,9 +120,6 @@ class AdaptarEstructuraTest extends PHPUnit_Framework_TestCase{
         );
     }
     function testRecursivo(){
-        $this->markTestSkipped(
-            'Raquel va a resolver este'
-        );
         $datos=array(
             'nombre_db'=>'la_db',
             'usuarios'=>array(
