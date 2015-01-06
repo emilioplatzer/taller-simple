@@ -97,9 +97,11 @@ class AdaptarEstructuraTest extends PHPUnit_Framework_TestCase{
         );
     }
     function testPredeterminadoOtro(){
+        /*
         $this->markTestSkipped(
             'Elba va a resolver este'
         );
+        */
         $datos=array(
             'alfa'=>'este'
         );
