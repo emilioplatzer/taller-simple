@@ -18,7 +18,13 @@ function adaptar_estructura(&$datos, $estructura){
                     ){
                         $valor_predeterminado=$id;
                     } else if(!isset($valor_campo['valor_predeterminado'])){
-                        throw new Exception("Falta parametro obligatorio ('{$nombre_campo}' no tiene valor por defecto)");
+                        if(!isset($valor_campo['predeterminado_otro'])){
+                          throw new Exception("Falta parametro obligatorio ('{$nombre_campo}' no tiene valor por defecto)");
+                        }
+                        else {
+                          $indice= $valor_campo['predeterminado_otro'];
+                          $valor_predeterminado=$datos_a_estructurar[0]["{$indice}"];
+                        }
                     } else {
                         $valor_predeterminado=$valor_campo['valor_predeterminado'];
                     }                    
